@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="content">
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{products[0][0]}}</h5>
+                    <p class="card-text">Productos totales</p>
+                    <div class="icon" style="
+                    font-size: 50px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex; /* add */
+                    justify-content: center; /* add to align horizontal */
+                    align-items: center; /* add to align vertical */
+                    opacity: 40%;                 
+                    ">
+                        <i class="fas fa-box-open"></i>
+                    </div>
+                    <a href="/view_products" class="btn btn-warning" style="float: left; position: relative;">Más info <i class="fa fa-arrow-circle-right"></i> </a> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{factorys[0]}}</h5>
+                    <p class="card-text">Fabricas totales</p>
+                    <div class="icon" style="
+                    font-size: 50px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex; /* add */
+                    justify-content: center; /* add to align horizontal */
+                    align-items: center; /* add to align vertical */    
+                    opacity: 40%;               
+                    ">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <a href="/view_totalFactory" class="btn btn-warning" style="float: left; position: relative;">Más info <i
+                        class="fa fa-arrow-circle-right"></i> </a> 
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{contacts[0]}}</h5>
+                    <p class="card-text">Contactos totales</p>
+                    <div class="icon" style="
+                    font-size: 50px;
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    display: flex; /* add */
+                    justify-content: center; /* add to align horizontal */
+                    align-items: center; /* add to align vertical */
+                    opacity: 40%;                 
+                    ">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <a href="/view_contacts" class="btn btn-warning" style="float: left; position: relative;">Más info <i
+                            class="fa fa-arrow-circle-right"></i> </a> 
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12 mb-12">
+            <table class="table table-striped table-hover table-bordered table-sm bg-white">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nombres</td>
+                        <td>Cantidad de fabricas</td>
+                        <td>Operaciones</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for factory_contact in countContactFactorys %}
+                    <tr>
+                        <td>{{factory_contact.0}}</td>
+                        <td>{{factory_contact.1}}</td>
+                        <td>{{factory_contact.2}}</td>
+                        <td class="nav justify-content-center">
+                            <a href="/view_factorysContact/{{factory_contact.0}}" class="btn btn-warning">Ver <i class="fas fa-eye"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</div>
+
+{% endblock %}
